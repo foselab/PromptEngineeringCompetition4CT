@@ -1,0 +1,11 @@
+[System]
+Name: BrowsersA
+
+[Parameter]
+OS (enum): Windows, Linux, macOS
+Browser (enum): Edge, Firefox, Safari
+Debug (boolean): true, false
+
+[Constraint]
+OS = "Windows" => Browser != "Safari"
+OS = "Linux" => Browser != "Safari"
