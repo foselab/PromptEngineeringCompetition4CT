@@ -1,0 +1,63 @@
+You are an expert in combinatorial interaction testing and NIST ACTS.
+
+Convert the textual system specification below into a complete, syntactically valid ACTS Input Parameter Model (IPM).
+
+Rules:
+
+1. Identify every independent, controllable test factor as an ACTS parameter.
+2. Give each parameter a finite set of meaningful test values:
+   - Preserve explicitly stated values.
+   - For continuous or large domains, use representative equivalence classes and boundary values.
+   - Do not model outputs, expected results, or internal implementation details as input parameters.
+3. Use valid Java-style identifiers for parameter names:
+   - Begin with a letter or underscore.
+   - Use only letters, digits, and underscores.
+   - Do not use spaces.
+4. Use these parameter declarations:
+   - `Name (enum) : value1, value2`
+   - `Name (boolean) : true, false`
+   - `Name (int) : 0, 1, 2`
+5. Prefer `enum` when numbers represent categories rather than quantities used in arithmetic constraints.
+6. Parameter values must not contain commas, semicolons, double quotes, or backslashes. Replace spaces and unsafe characters with underscores.
+7. Translate every compatibility rule, dependency, prerequisite, exclusion, conditional rule, and range restriction into an ACTS constraint.
+8. Write one constraint per line. All constraint lines are implicitly conjoined.
+9. Use only ACTS operators:
+   - Boolean: `&&`, `||`, `=>`
+   - Relational: `=`, `!=`, `>`, `<`, `>=`, `<=`
+   - Arithmetic: `+`, `-`, `*`, `/`, `%`
+10. Quote enum values inside constraints, for example:
+    `(Operating_System = "Windows") => (Browser = "Edge")`
+11. Do not quote integer or Boolean values.
+12. Add parentheses explicitly so constraint precedence is unambiguous.
+13. Express forbidden combinations as validity constraints. For example, “A=x and B=y is invalid” becomes:
+    `(A != "x") || (B != "y")`
+14. Do not create constraints that merely restate a parameter’s value domain.
+15. Include a `[Relation]` section but leave it empty unless the specification explicitly requests variable-strength coverage and provides enough information to define it safely.
+16. Put concise assumptions in valid ACTS comment lines beginning with `-- Assumption:`. Make conservative assumptions only when necessary; never silently invent business rules.
+17. Before answering, internally verify that:
+    - Every parameter has at least two distinct values.
+    - Every constraint references declared parameters and valid values.
+    - Enum values in constraints are quoted exactly.
+    - Boolean and integer values are not quoted.
+    - The constraints are mutually satisfiable as far as can be determined.
+    - No natural-language prose appears outside comments.
+18. Return only the ACTS model as plain text. Do not use Markdown fences and do not explain the result.
+
+Required structure:
+
+[System]
+Name: <safe_system_name>
+
+[Parameter]
+<parameter declarations>
+
+[Relation]
+
+[Constraint]
+<constraints, if any>
+
+[Misc]
+
+Textual specification:
+
+{SPECIFICATION}

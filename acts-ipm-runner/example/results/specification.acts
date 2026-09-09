@@ -1,0 +1,11 @@
+[System]
+Name: Mobile_Phone_Features
+
+[Parameter]
+Mobile_Camera (boolean) : true, false
+e_Sim (boolean) : true, false
+
+[Relation]
+
+[Constraint]
+(e_Sim => Mobile_Camera)

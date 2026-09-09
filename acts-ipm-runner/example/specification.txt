@@ -1,0 +1,3 @@
+A mobile phone is characterized by two features. It can have a mobile camera, or not have it.
+It can have an e-Sim or not have it.
+If it doesn't have a mobile camera, than it cannot have an e-Sim.

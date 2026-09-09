@@ -1,0 +1,1 @@
+python ../generate_ipm.py --provider local --model gemma4:e2b --prompt-file prompt.txt --specification-file specification.txt --output-dir results --overwrite
