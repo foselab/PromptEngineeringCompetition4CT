@@ -1,0 +1,7 @@
+The system can run on different platforms, i.e., x86, ia64, or amd64.
+Different CPUs, RAM, or HDD are supported.
+The system supports Single, Dual, or Quad core CPUs and needs at least 128MB to work. However, higher RAM sizes (e.,g., 1GB, 4GB, or 64GB are preferred).
+X86 architecture does not support 64GB RAM.
+HDD can be connected using SCSI or IDE.
+From the software point of view, the system can run different OSs, i.e.,  NT4, Win2K, WinXP, or Win2K3, and different versions of IE (40, 50, 55, 60) are supported.
+However, only WinXP or Win2K3 can be used if the platform is ia64 or amd64.
