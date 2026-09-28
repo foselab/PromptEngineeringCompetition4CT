@@ -200,3 +200,80 @@ This design rewards both:
 - robustness across unseen specifications and LLMs.
 
 The final ranking will be computed by the organizers using the same execution environment, benchmark set, model versions, and generation parameters for all submissions.
+
+---
+
+## Evaluation criteria
+
+Generated IPMs are evaluated against reference IPMs. The scoring procedure considers the main elements of an IPM.
+
+### 1. Syntax and format validity
+
+The generated model should follow the expected ACTS format and contain the required sections, especially `[System]`, `[Parameter]`, and, when needed, `[Constraint]`.
+
+Outputs that are not parseable as ACTS models may receive no score for the affected benchmark.
+
+### 2. Parameter correctness
+
+The evaluation considers whether the generated IPM contains the correct parameters.
+
+Parameter-related checks include:
+
+- number of parameters;
+- parameter names;
+- parameter types;
+- missing parameters;
+- spurious parameters.
+
+Parameter count will be scored using normalized distance from the reference model. 
+Parameter names will be evaluated using exact matching and, where appropriate, semantic similarity.
+
+### 3. Value correctness
+
+The evaluation considers whether each parameter has the correct set of values.
+
+Value-related checks include:
+
+- number of values;
+- value names;
+- missing values;
+- spurious values.
+
+### 4. Constraint correctness
+
+Constraint evaluation focuses on semantic equivalence rather than textual equality.
+
+A generated IPM will receive credit for constraints even if they are written differently from the reference constraints, provided that they define the same set of valid configurations. 
+Conversely, a syntactically valid constraint set will be penalized if it admits configurations that should be forbidden or forbids configurations that should be allowed.
+
+The `acts-ipm-equivalence-checker` supports this evaluation by comparing the solution spaces of generated and reference IPMs using an SMT solver.
+
+### 5. Aggregate score and ranking
+
+The final score will combine parameter, value, and constraint scores. Parameter errors are expected to receive the highest weight, followed by value errors and constraint errors, as incorrect parameters affect the interpretation of the entire IPM.
+
+For participant `i`, the final score is computed from the results obtained on the hidden evaluation benchmarks with both the known LLM and the withheld transfer LLM:
+
+```text
+final_score_i = score_i_known_llm + score_i_transfer_llm
+```
+
+The precise scoring weights and thresholds will be documented before the competition opens.
+
+
+
+
+
+
+
+
+
+---
+
+## Contacts
+
+For questions about the competition, please contact the organizing committee:
+
+- **Andrea Bombarda**, University of Bergamo — <andrea.bombarda@unibg.it>
+- **Jaganmohan Chandrasekaran**, Kennesaw State University — <jchandr2@kennesaw.edu>
+- **Erin Lanus**, Virginia Tech — <lanus@vt.edu>
