@@ -260,9 +260,82 @@ final_score_i = score_i_known_llm + score_i_transfer_llm
 
 The precise scoring weights and thresholds will be documented before the competition opens.
 
+---
 
+## Quick start: run a prompt locally
 
+The commands below illustrate the local development workflow. Exact model names and final scripts may be updated before the competition opens.
 
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/foselab/PromptEngineeringCompetition4CT.git
+cd PromptEngineeringCompetition4CT
+```
+
+### 2. Install and start Ollama
+
+Install Ollama following the official Ollama instructions for your operating system. Then pull the known development model announced by the organizers.
+
+```bash
+ollama pull <known-model-name>
+ollama serve
+```
+
+Replace `<known-model-name>` with the model selected for the competition.
+
+### 3. Create a prompt template
+
+Create a file named `prompt.txt` with the `{SPEFICICATION}` placeholder where you expect the textual SUT specification to be substituted.
+
+### 4. Generate an IPM for one specification
+
+```bash
+python3 scripts/acts-ipm-runner/generate_ipm.py \
+  --provider local \
+  --model <known-model-name> \
+  --prompt-file prompt.txt \
+  --specification-file benchmarks/development/specifications/<specification-file>.txt \
+  --output-dir results \
+  --overwrite
+```
+
+The generated IPM will be saved in the `results/` directory as an `.acts` file.
+
+### 5. Check semantic equivalence of constraints
+
+Install the requirements for the equivalence checker.
+
+```bash
+cd scripts/acts-ipm-equivalence-checker
+python3 -m venv .venv
+. .venv/bin/activate
+python3 -m pip install -r requirements.txt
+```
+
+Then compare a generated IPM with a reference IPM.
+
+```bash
+python3 acts_equiv.py \
+  ../../benchmarks/development/IPM/<reference-file>.acts \
+  ../../results/<generated-file>.acts
+```
+
+### 6. Run the complete development evaluation
+
+The complete competition runner will evaluate a submitted prompt against a benchmark set and compute the development score.
+
+Once available, the workflow will follow this structure:
+
+```bash
+python3 scripts/competition-runner/run_competition.py \
+  --benchmark-dir benchmarks/development \
+  --prompt-file prompt.txt \
+  --model <known-model-name> \
+  --output-dir results/development-run
+```
+
+If the online submission system is available, participants may use the web interface instead of running the complete local workflow.
 
 
 
@@ -277,3 +350,5 @@ For questions about the competition, please contact the organizing committee:
 - **Andrea Bombarda**, University of Bergamo — <andrea.bombarda@unibg.it>
 - **Jaganmohan Chandrasekaran**, Kennesaw State University — <jchandr2@kennesaw.edu>
 - **Erin Lanus**, Virginia Tech — <lanus@vt.edu>
+
+If your question is about the repository, or you believe that others may benefit from solving the same doubt, please open an issue on GitHub.
