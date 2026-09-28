@@ -160,3 +160,43 @@ The runner supports Ollama-compatible execution and is intended to make developm
 Contains the script used to compare the valid configuration spaces induced by two ACTS IPMs. It is used to support semantic constraint evaluation.
 
 The checker does not simply compare the number or textual form of constraints. Instead, it uses an SMT-based approach to determine whether two IPMs admit the same valid configurations.
+
+### `scripts/competition-runner/`
+
+It will contain, before the competition opens, the script used to run the complete competition evaluation. 
+Given a benchmark set and a participant submission, this runner generates IPMs, compares them against the reference IPMs, and computes the corresponding scores.
+
+---
+
+## Development-phase workflow
+
+During the development phase, participants can iteratively improve their prompts using public benchmarks and a known LLM.
+
+1. Choose a nickname or team name.
+2. Write a prompt template containing `{SPECIFICATION}`.
+3. Run the prompt on the development specifications.
+4. Inspect the generated ACTS IPMs.
+5. Compare generated IPMs with the reference IPMs, by using the scripts we provide in the `script` folder. 
+6. Use the feedback to improve the prompt.
+7. Submit the final prompt before the deadline.
+
+The known LLM will be disclosed to participants. It will be selected to be small enough to run, when possible, on consumer-grade laptops. All LLM executions will use temperature `0` to reduce randomness and improve reproducibility.
+
+---
+
+## Final offline evaluation
+
+After the participant submission deadline, the organizers will run the final offline evaluation.
+
+Each submitted prompt will be evaluated on:
+
+1. **hidden evaluation benchmarks**, not available during the development phase;
+2. the **known LLM** used during development;
+3. a **withheld transfer LLM**, larger and from a different model family, not disclosed before the final evaluation.
+
+This design rewards both:
+
+- accuracy on the IPM derivation task;
+- robustness across unseen specifications and LLMs.
+
+The final ranking will be computed by the organizers using the same execution environment, benchmark set, model versions, and generation parameters for all submissions.
