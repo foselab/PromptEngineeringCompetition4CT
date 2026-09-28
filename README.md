@@ -103,3 +103,60 @@ Return only the ACTS model. Do not include Markdown fences or explanations.
 Specification:
 {SPECIFICATION}
 ```
+
+---
+
+## Repository structure
+
+The repository is organized as follows.
+
+```text
+.
+├── README.md
+├── assets/
+│   └── Workflow.png
+├── benchmarks/
+│   ├── development/
+│   │   ├── specifications/
+│   │   │   └── ... textual SUT specifications used during the development phase
+│   │   └── IPM/
+│   │       └── ... reference IPMs for the development specifications
+│   └── evaluation/
+│       └── ... hidden final-evaluation benchmarks, released after the submission deadline
+└── scripts/
+    ├── acts-ipm-runner/
+    │   └── ... scripts for calling an LLM and generating IPMs
+    ├── acts-ipm-equivalence-checker/
+    │   └── ... scripts for checking semantic equivalence of ACTS constraints
+    └── competition-runner/
+        └── ... scripts for running the complete benchmark evaluation and computing scores
+```
+
+In the following, we report a brief description of the main folders and scripts.
+
+### `benchmarks/development/`
+
+Contains the public development-phase benchmark systems.
+
+- `specifications/`: textual SUT descriptions given as input to the LLM.
+- `IPM/`: reference IPMs corresponding to the development specifications.
+
+Participants may use these files to understand the task, test prompts, and improve their solutions before the submission deadline.
+
+### `benchmarks/evaluation/`
+
+Contains the final-evaluation benchmark systems. These files are intentionally hidden during the competition and will be uploaded after the participant submission deadline.
+
+The hidden evaluation benchmarks are used to assess whether submitted prompts generalize to unseen SUT specifications instead of overfitting to the public development examples.
+
+### `scripts/acts-ipm-runner/`
+
+Contains the script used to connect to an LLM and generate an IPM from a textual specification and a participant prompt.
+
+The runner supports Ollama-compatible execution and is intended to make development reproducible on local machines or through Ollama Cloud.
+
+### `scripts/acts-ipm-equivalence-checker/`
+
+Contains the script used to compare the valid configuration spaces induced by two ACTS IPMs. It is used to support semantic constraint evaluation.
+
+The checker does not simply compare the number or textual form of constraints. Instead, it uses an SMT-based approach to determine whether two IPMs admit the same valid configurations.
