@@ -163,8 +163,7 @@ The checker does not simply compare the number or textual form of constraints. I
 
 ### `scripts/competition-runner/`
 
-It will contain, before the competition opens, the script used to run the complete competition evaluation. 
-Given a benchmark set and a participant submission, this runner generates IPMs, compares them against the reference IPMs, and computes the corresponding scores.
+Contains the complete benchmark runner. Given specification and reference-IPM folders, a participant prompt, and one or more Ollama models, it generates every IPM, evaluates the proposal's parameter, value, and constraint components, computes the final score, and reports detailed errors. See the [competition runner documentation](scripts/competition-runner/README.md).
 
 ---
 
