@@ -1,1 +1,0 @@
-An application that is intended to run on a variety of platforms comprised of five components: an operating system (Windows XP, Apple OS X, Red Hat Enterprise Linux), a browser (Internet Explorer, Firefox), protocol stack (IPv4,IPv6), a processor (Intel, AMD), and a database (MySQL, Sybase, Oracle)
