@@ -1,0 +1,27 @@
+Two programs, schedule and schedule2, take the following inputs:
+(1) three non-negative integers representing the number of processes
+in three different priority queues, low, medium and high; and (2) a
+list of commands that must be done on queues. The output of these
+two programs is a list of numbers indicating the order in which the
+processes exit (from the scheduling system). For example, consider
+the first three input parameters which are 3, 2 and 1. Three processes
+are placed in low priority queue, two processes in medium priority
+queue, and one process is high priority queue. The id is assigned
+to the processes by their priority so the 0 is in the high priority
+queue, 1 and 2 are in medium priority queue and 3, 4 and 5 are
+in low priority queue. There are seven commands (1) new job: this
+command has one attribute, queue, and adds a new process at the
+specified priority queue. (2) upgrade_prio: it has two attributes,
+queue and ratio. This command promotes a process from the
+specified priority queue to the next higher priority queue. The ratio
+attribute is used to determine which process to be promoted. (3)
+block: this command adds the current process to the blocked queue.
+(4) unblock: this command unblocks a process from the blocked
+queue. It has one attribute, ratio, which is used to determine which
+process must be unblocked. (5) quantum_expire: this command
+puts the current process at the end of its priority queue. (6) finish:
+this command exits the current process and prints its number. (7)
+flush: this command causes all processes from the priority queues
+to exit in their priority order. Two commands, upgrade_prio and
+unblock, operate on the n-th process where n = ⌊r + 1⌋ and
+r = (length of queue × ratio).
