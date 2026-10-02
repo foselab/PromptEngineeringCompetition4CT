@@ -1,0 +1,9 @@
+[System]
+Name: BrowserConfiguration
+
+[Parameter]
+Operating_System (enum): Windows XP, Apple OS X, Red Hat Enterprise Linux
+Browser (enum): Internet Explorer, Firefox
+Protocol_Stack (enum): IPv4, IPv6
+Processor (enum): Intel, AMD
+Database (enum): MySQL, Sybase, Oracle

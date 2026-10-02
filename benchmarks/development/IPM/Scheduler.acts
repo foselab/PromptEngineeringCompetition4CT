@@ -1,0 +1,15 @@
+[System]
+Name: ProcessScheduler
+
+[Parameter]
+new_process (enum): 0, 1, >1
+new_proc_queue (enum): low, mid, high
+upgrade_prio (enum): 0, 1, >1
+upgrade_queue (enum): low, mid
+upgrade_ratio (enum): 0, 1, >1, 0.1, 0.4, 0.5, 0.6, 0.9
+block (enum): 0, 1, >1
+unblock (enum): 0, 1, >1
+unblock_ratio (enum): 0, 1, >1, 0.1, 0.4, 0.5, 0.6, 0.9
+quantum_expire (enum): 0, 1, >1
+finish (enum): 0, 1, >1
+flush (enum): 0, 1, >1
