@@ -334,12 +334,6 @@ python3 scripts/competition-runner/run_competition.py \
   --output-dir results/development-run
 ```
 
-If the online submission system is available, participants may use the web interface instead of running the complete local workflow.
-
-
-
-
-
 ---
 
 ## Contacts
