@@ -1,0 +1,31 @@
+[System]
+Name: DocumentConversionService
+
+[Parameter]
+InputFormat (enum): PDF, DOCX, HTML, Markdown
+OutputFormat (enum): PDF, HTML, PlainText
+Quality (enum): Standard, High
+Language (enum): English, French, German, Japanese
+Environment (enum): Local, Cloud
+Delivery (enum): Download, Email
+Archive (enum): Yes, No
+PasswordProtection (enum): Enabled, Disabled
+FileSizeMB (int): 1, 20, 21, 100
+
+[Constraint]
+(InputFormat = "HTML" || InputFormat = "Markdown") => (Language != "Japanese")
+
+(InputFormat != OutputFormat)
+(InputFormat = "Markdown") => (OutputFormat = "HTML" || OutputFormat = "PlainText")
+
+(Quality = "High") => (InputFormat = "PDF" || InputFormat = "DOCX")
+(Quality = "High") => (Environment = "Cloud")
+(Quality = "High") => (OutputFormat != "PlainText")
+
+(Delivery = "Email") => (Environment = "Cloud" && Archive = "Yes")
+
+(PasswordProtection = "Enabled") => (OutputFormat = "PDF" || Archive = "Yes")
+(PasswordProtection = "Enabled") => (Delivery != "Email")
+
+(Environment = "Cloud") => (FileSizeMB <= 100)
+(Environment = "Local") => (FileSizeMB <= 20)

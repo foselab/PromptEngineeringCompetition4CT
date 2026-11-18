@@ -1,0 +1,42 @@
+DOCUMENT CONVERSION SERVICE
+
+The service converts uploaded documents into formats suitable for download
+or online viewing. Each conversion request specifies an input format, an
+output format, a conversion quality, and an execution environment.
+
+CONVERSION OPTIONS
+
+Parameter              Supported values
+---------------------  ----------------------------------
+Input format           PDF, DOCX, HTML, Markdown
+Output format          PDF, HTML, Plain text
+Quality                Standard, High
+Language               English, French, German, Japanese
+Execution environment  Local, Cloud
+Delivery method        Download, Email
+Archive output         Yes, No
+Password protection    Enabled, Disabled
+
+All listed languages are supported for PDF and DOCX inputs. HTML and
+Markdown inputs support English, French, and German only.
+
+The output format must differ from the input format. Markdown input can be
+converted to HTML or plain text, but not directly to PDF.
+
+High-quality conversion is available only for PDF and DOCX inputs. It
+requires the cloud environment and is unavailable when the output is plain
+text.
+
+DELIVERY AND SECURITY
+
+Requests delivered by email must run in the cloud and produce an archive.
+Requests delivered by download may run locally or in the cloud, with or
+without an archive.
+
+Password protection is available only when the output is PDF or an archive
+is produced. Password protection cannot be used with email delivery.
+
+FILE SIZE
+
+The service accepts files up to 100 MB in the cloud and up to 20 MB locally.
+For testing purposes, consider files of 1 MB, 20 MB, 21 MB, and 100 MB.
