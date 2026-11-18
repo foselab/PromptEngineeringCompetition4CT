@@ -1,0 +1,29 @@
+# Image Processing Service
+
+The service accepts an image, applies a requested transformation, and returns the result.
+The input image can be a JPEG, PNG, WebP, or GIF file. Users can resize, crop, or rotate any supported input. Compression is available only for JPEG, PNG, and WebP inputs.
+The result can be saved as JPEG, PNG, or WebP. GIF inputs may be converted only to PNG or WebP; the service processes only the first frame of a GIF.
+Each request uses one of three processing modes: Fast, Balanced, or HighQuality. PNG output is unavailable in Fast mode. HighQuality mode is available only for resizing and compression.
+Users may choose to preserve metadata. This option is available only for JPEG or WebP output and cannot be used with GIF input.
+
+## Watermarks and delivery
+A user may request a text watermark, an image watermark, or no watermark. Watermarks are available for resizing and cropping; rotation and compression cannot add one.
+An image watermark requires Balanced or HighQuality mode. A text watermark can be used with any processing mode.
+The result can be delivered immediately or by email. Immediate delivery is available only for input files up to 10 MB. Email delivery supports input files up to 50 MB and requires a text or image watermark.
+
+## File size and implementation
+
+For testing, consider input files of 1 MB, 10 MB, 11 MB, and 50 MB. The following source code defines the processing-mode limit:
+
+```python
+def is_mode_allowed(mode, input_size_mb):
+    if mode == "Fast":
+        return input_size_mb <= 50
+    if mode == "Balanced":
+        return input_size_mb <= 20
+    if mode == "HighQuality":
+        return input_size_mb <= 10
+    return False
+```
+
+A request is accepted only if it satisfies every applicable rule above and the function returns `True`.

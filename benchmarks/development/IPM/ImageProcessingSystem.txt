@@ -1,0 +1,32 @@
+[System]
+Name: ImageProcessingService
+
+[Parameter]
+InputFormat (enum): JPEG, PNG, WebP, GIF
+Operation (enum): Resize, Crop, Rotate, Compress
+Mode (enum): Fast, Balanced, HighQuality
+OutputFormat (enum): JPEG, PNG, WebP
+Delivery (enum): Immediate, Email
+PreserveMetadata (boolean): TRUE, FALSE
+Watermark (enum): None, Text, Image
+FileSizeMB (int): 1, 10, 11, 50
+
+[Constraint]
+(InputFormat = "GIF") => (Operation != "Compress")
+(InputFormat = "GIF") => (OutputFormat = "PNG" || OutputFormat = "WebP")
+
+(Mode = "Fast") => (OutputFormat != "PNG")
+(Mode = "HighQuality") => (Operation = "Resize" || Operation = "Compress")
+
+(PreserveMetadata = TRUE) => (OutputFormat = "JPEG" || OutputFormat = "WebP")
+(InputFormat = "GIF") => (PreserveMetadata = FALSE)
+
+(Operation = "Rotate" || Operation = "Compress") => (Watermark = "None")
+(Watermark = "Image") => (Mode = "Balanced" || Mode = "HighQuality")
+
+(Delivery = "Immediate") => (FileSizeMB <= 10)
+(Delivery = "Email") => (FileSizeMB <= 50 && Watermark != "None")
+
+(Mode = "Fast") => (FileSizeMB <= 50)
+(Mode = "Balanced") => (FileSizeMB <= 20)
+(Mode = "HighQuality") => (FileSizeMB <= 10)
