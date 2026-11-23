@@ -1,0 +1,22 @@
+[System]
+Name: SmartHomeHub
+
+[Parameter]
+Mode (enum) : Home, Away, Night, Vacation
+AutoLock (boolean) : TRUE, FALSE
+PorchLightSchedule (boolean) : TRUE, FALSE
+EcoThermostat (boolean) : TRUE, FALSE
+CameraRecording (boolean) : TRUE, FALSE
+MotionAlerts (boolean) : TRUE, FALSE
+DoorbellChime (boolean) : TRUE, FALSE
+LeakAlerts (boolean) : TRUE, FALSE
+VacuumSchedule (boolean) : TRUE, FALSE
+Automations (boolean) : TRUE, FALSE
+SprinklerSchedule (boolean) : TRUE, FALSE
+BlindsSchedule (boolean) : TRUE, FALSE
+NightLight (boolean) : TRUE, FALSE
+VoiceAssistant (boolean) : TRUE, FALSE
+EnergyReport (boolean) : TRUE, FALSE
+
+[Constraint]
+Automations = false => Mode = "Home"

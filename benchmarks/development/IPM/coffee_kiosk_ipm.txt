@@ -1,0 +1,11 @@
+[System]
+Name: CoffeeKiosk
+
+[Parameter]
+CupSize (enum) : Small, Medium, Large
+Milk (enum) : Whole, Oat, Almond
+Serving (enum) : Hot, Warm, Iced
+Sweetness (enum) : None, Half, Full
+Flavour (enum) : Plain, Vanilla, Caramel, Hazelnut, Cinnamon, Honey
+
+[Constraint]

@@ -1,0 +1,20 @@
+[System]
+Name: FoodDelivery
+
+[Parameter]
+Area (enum) : Northgate, Southbank, Eastfield, Westwood, OldTown, Riverside, Hillcrest, Docklands, Parkview, Marketside, Greenhill
+Handover (enum) : LeaveAtDoor, HandToMe, Reception, Neighbour, Locker
+Courier (enum) : Bike, Scooter, Car, OnFoot
+Express (boolean) : TRUE, FALSE
+DeliveryHour (int) : 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
+Items (int) : 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+Restaurant (enum) : ProntoPizza, SpiceRoute, TeaRoom, LunchBox, GreenBowl
+Payment (enum) : Card, PhoneWallet, BankTransfer, Cash, Voucher
+Tip (boolean) : TRUE, FALSE
+
+[Constraint]
+Payment = "Cash" => Items <= 4
+Restaurant = "LunchBox" => DeliveryHour <= 14
+Restaurant = "TeaRoom" => DeliveryHour >= 15 && DeliveryHour <= 18
+Restaurant = "GreenBowl" => Express = false
+Payment = "Voucher" => Tip = false

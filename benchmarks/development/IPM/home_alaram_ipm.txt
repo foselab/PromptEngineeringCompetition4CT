@@ -1,0 +1,15 @@
+[System]
+Name: HomeAlarm
+
+[Parameter]
+PerimeterGuard (boolean) : TRUE, FALSE
+InteriorGuard (boolean) : TRUE, FALSE
+KeypadBeeps (boolean) : TRUE, FALSE
+AppAlerts (boolean) : TRUE, FALSE
+Siren (boolean) : TRUE, FALSE
+
+[Constraint]
+PerimeterGuard = true || InteriorGuard = true => Siren = true
+PerimeterGuard = false && InteriorGuard = false => Siren = false
+PerimeterGuard = true => AppAlerts = true
+PerimeterGuard = false => (KeypadBeeps = true && AppAlerts = false) || (KeypadBeeps = false && AppAlerts = true)

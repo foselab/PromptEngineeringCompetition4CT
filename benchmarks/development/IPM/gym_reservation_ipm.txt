@@ -1,0 +1,22 @@
+[System]
+Name: GymBooking
+
+[Parameter]
+Visitor (enum) : DropIn, Member, Corporate
+TrialClass (boolean) : TRUE, FALSE
+ClassType (enum) : Yoga, Spin, Bootcamp, HIIT, RunningClub, Pilates
+TimeSlot (enum) : Morning, Midday, Evening
+Venue (enum) : Outdoor, Studio
+Locker (boolean) : TRUE, FALSE
+Trainer (enum) : Ana, Ben, Chloe, Dev, Ewa
+EquipmentHire (boolean) : TRUE, FALSE
+TextReminder (boolean) : TRUE, FALSE
+AddToCalendar (boolean) : TRUE, FALSE
+
+[Constraint]
+TrialClass = true => Visitor = "DropIn"
+Locker = true => Visitor != "DropIn"
+(ClassType = "Yoga" || ClassType = "Spin" || ClassType = "Pilates") => Venue = "Studio"
+ClassType = "RunningClub" => Venue = "Outdoor"
+(ClassType = "Bootcamp" || ClassType = "HIIT") && TimeSlot = "Morning" => Venue = "Outdoor"
+(ClassType = "Bootcamp" || ClassType = "HIIT") && TimeSlot != "Morning" => Venue = "Studio"

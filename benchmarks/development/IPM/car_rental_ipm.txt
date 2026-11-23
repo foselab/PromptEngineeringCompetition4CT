@@ -1,0 +1,20 @@
+[System]
+Name: CarRental
+
+[Parameter]
+CarSize (enum) : Compact, Midsize, SUV
+RentalLength (enum) : Day, Weekend, Week, Fortnight, Month
+Satnav (boolean) : TRUE, FALSE
+FuelPolicy (enum) : FullToFull, PrepaidTank, PayPerLitre
+ChildSeat (boolean) : TRUE, FALSE
+Cover (enum) : Basic, Standard, Premium
+PickupTime (enum) : Morning, Afternoon, Evening
+MemberAccount (boolean) : TRUE, FALSE
+FreeCancellation (boolean) : TRUE, FALSE
+Payment (enum) : PayAtPickup, Prepaid
+
+[Constraint]
+MemberAccount = true => FreeCancellation = true
+FreeCancellation = true => MemberAccount = true
+MemberAccount = false => Payment = "Prepaid"
+RentalLength = "Month" => Payment = "Prepaid"

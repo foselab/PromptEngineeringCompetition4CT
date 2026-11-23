@@ -1,0 +1,25 @@
+[System]
+Name: PizzaBuilder
+
+[Parameter]
+Crust (enum) : PartySheet, Classic, Thin, Stuffed, GlutenFree
+Size (enum) : Small, Medium, Large, Family
+Mushrooms (boolean) : TRUE, FALSE
+Olives (boolean) : TRUE, FALSE
+Peppers (boolean) : TRUE, FALSE
+ExtraCheese (boolean) : TRUE, FALSE
+Sauce (enum) : TruffleCream, Tomato, BBQ, Garlic, Pesto, Spicy
+DoubleMeat (boolean) : TRUE, FALSE
+Cheese (enum) : Burrata, Mozzarella, Cheddar, Vegan
+Bake (enum) : Normal, Light, WellDone
+
+[Constraint]
+Crust = "PartySheet" => Size = "Family"
+Crust = "Classic" => Size != "Family"
+Crust = "Thin" => Size = "Small" || Size = "Large"
+Crust = "Stuffed" => Size = "Medium"
+Crust = "GlutenFree" => Size = "Small" || Size = "Large"
+ExtraCheese = false || Sauce != "TruffleCream" || DoubleMeat = false
+ExtraCheese = false || Sauce != "TruffleCream" || Cheese != "Burrata"
+ExtraCheese = false || DoubleMeat = false || Cheese != "Burrata"
+Sauce != "TruffleCream" || DoubleMeat = false || Cheese != "Burrata"
