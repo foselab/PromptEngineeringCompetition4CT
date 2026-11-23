@@ -1,0 +1,20 @@
+[System]
+Name: booktrip
+
+[Parameter]
+DepartureAirport (enum) : London, Manchester, Birmingham, Glasgow, Edinburgh, Bristol, Newcastle, Liverpool, Leeds, Belfast, Cardiff, Aberdeen, Southampton
+Destination (enum) : Lisbon, Porto, Madrid, Barcelona, Malaga, Seville, Paris, Nice, Rome, Milan, Naples, Venice, Athens, Dubrovnik, Split, Prague, Vienna
+DepartureDay (int) : 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
+Nights (int) : 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+CabinClass (enum) : Economy, PremiumEconomy, Business
+Travellers (int) : 1, 2, 3, 4, 5, 6
+CheckedBags (int) : 0, 1, 2, 3, 4, 5
+Meal (enum) : Standard, Vegetarian, Vegan, Halal, GlutenFree
+TravelInsurance (boolean) : TRUE, FALSE
+SeatSelection (boolean) : TRUE, FALSE
+AirportTransfer (boolean) : TRUE, FALSE
+FlexibleTicket (boolean) : TRUE, FALSE
+PriorityBoarding (boolean) : TRUE, FALSE
+CarbonOffset (boolean) : TRUE, FALSE
+
+[Constraint]
