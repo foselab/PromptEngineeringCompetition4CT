@@ -1,0 +1,12 @@
+
+
+People order from one of our five restaurants: Pronto Pizza, Spice Route, the Tea Room, Lunch Box and Green Bowl. They tell us where they are (we cover Northgate, Southbank, Eastfield, Westwood, Old Town, Riverside, Hillcrest, Docklands, Parkview, Marketside or Greenhill), what hour they want it, anywhere on the hour from 11:00 to 20:00, and how many items, from 1 up to 10. They say how they want it handed over: left at the door, handed to them, left at reception, left with a neighbour, or put in a locker. They pick a bike, scooter, car or on-foot courier, decide whether to pay extra for express, choose to pay by card, phone wallet, bank transfer, cash or gift voucher, and decide whether to tip.
+
+Things customers ask about:
+- Lunch Box is a lunch place, so its last delivery slot is 14:00.
+- The Tea Room only does afternoons: the 15:00 slot through to the 18:00 slot.
+- Green Bowl is too far out for express.
+- If they pay cash, the order can't be more than four items. There's no money limit, just the item count.
+- If they pay with a gift voucher, they can't add a tip.
+
+That's it. Any courier can do express, and every restaurant delivers everywhere. The arrival estimate, the promo banner and the star ratings in the app are just there to look at.

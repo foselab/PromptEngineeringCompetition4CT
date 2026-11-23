@@ -1,0 +1,5 @@
+Self-service coffee kiosk:
+
+Customers build their drink on a touchscreen in five steps. First, they pick a cup: small, medium, or large. Next comes the milk. Every drink at Brew Corner is made with milk, and the kiosk offers whole, oat, or almond milk; there is no option to leave the milk out. Customers then choose how the drink is served: hot, warm or iced. After that, they set the sweetness to none, half, or full. Finally, they can add a flavor shot of vanilla, caramel, hazelnut, cinnamon, or honey, or choose plain for no flavor.
+
+Any combination of these choices can be ordered. Before paying, customers can scan a loyalty card to see their points balance, and the screen shows the price of the drink. Neither of these changes the drink itself.

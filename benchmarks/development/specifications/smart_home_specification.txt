@@ -1,0 +1,9 @@
+
+
+The HomeNest app controls a household hub. At the top of the settings screen the owner picks the hub's mode: Home, Away, Night or Vacation. These are the only four modes.
+
+Below the mode is a list of features, each simply switched on or off: auto-lock for the front door, a porch light schedule, an eco setting for the thermostat, camera recording, motion alerts, the doorbell chime, water leak alerts, a robot vacuum schedule, a garden sprinkler schedule, a blinds schedule, a hallway night light, the voice assistant, and a weekly energy report.
+
+There is also a master switch for automations. Away, Night and Vacation modes work by running automations, so while automations are switched off the hub stays in Home mode. Apart from that, every combination of mode and switches is allowed.
+
+The app's home screen also shows a weather widget, the battery level of each device and an activity log. These are for information only and are not settings.

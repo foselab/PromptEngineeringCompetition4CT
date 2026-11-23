@@ -1,0 +1,13 @@
+
+FitHub's booking page lets people book a single class. They first say who they are: a drop-in visitor, a member, or a corporate member through their employer. They then choose a class (yoga, spin, bootcamp, HIIT, running club or pilates), a time slot (morning, midday or evening) and a trainer (Ana, Ben, Chloe, Dev or Ewa). Each booking also records whether the class takes place outdoors or in the studio.
+
+Five extras are each yes or no: a free trial class, a locker, equipment hire, a text reminder, and adding the class to their calendar.
+
+Some combinations are not possible:
+
+- Free trial classes are only for drop-in visitors.
+- Lockers are for members and corporate members only, not for drop-in visitors.
+- Yoga, spin and pilates are always in the studio, and running club is always outdoors.
+- Bootcamp and HIIT move outdoors for the morning slot, and are held in the studio at midday and in the evening.
+
+Running club meets at every time slot, and any trainer can teach any class. The page also shows how many places are left, a waiting-list button, and a map of the gym; none of these are booking choices.

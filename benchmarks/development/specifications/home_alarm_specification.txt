@@ -1,0 +1,11 @@
+
+
+The SafeHome panel has five on/off settings: the perimeter guard (door and window sensors), the interior guard (indoor motion sensors), keypad beeps, app alerts to the owner's phone, and the siren.
+
+The panel only accepts certain combinations:
+
+- The siren is on exactly when at least one of the two guards is on. With both guards off, the siren is off.
+- With the perimeter guard on, app alerts must be on; keypad beeps may be on or off.
+- With the perimeter guard off, the panel signals events in exactly one way: either keypad beeps or app alerts, never both and never neither.
+
+Turning on the interior guard adds no requirement about beeps or alerts beyond these rules. The entry delay (30 seconds) and the installer code are fixed by the installer and are not settings.
